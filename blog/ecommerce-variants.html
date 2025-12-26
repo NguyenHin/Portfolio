@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Handling Product Variants in an E-commerce Website</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">&lt;Dev<span>.Code</span>/&gt;</div>
+    <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+    </ul>
+</nav>
+
+<section class="section">
+    <div class="container blog-detail">
+
+        <a href="../index.html#blog" class="back-link">← Back</a>
+
+        <h1 class="blog-title">
+            Handling Product Variants in an E-commerce Website
+        </h1>
+
+        <p class="blog-meta">
+            February 2025 · HTML · JavaScript
+        </p>
+
+        <h2>📌 Background</h2>
+        <p>
+            While building a simple clothing e-commerce website, I quickly realized that
+            handling product variants such as color, size, and stock quantity was more complex
+            than it first appeared.
+        </p>
+
+        <h2>🧩 The Problem</h2>
+        <p>
+            Each product could have multiple combinations of color and size,
+            and each combination had a different stock quantity.
+            A normal “Add to Cart” logic was not enough.
+        </p>
+
+        <h2>🛠 My Approach</h2>
+        <ul>
+            <li>Represent each variant as a unique combination of color + size</li>
+            <li>Store variants in a structured JavaScript object</li>
+            <li>Update available sizes dynamically based on selected color</li>
+            <li>Disable the add-to-cart button when stock is zero</li>
+        </ul>
+
+        <h2>⚠ Challenges</h2>
+        <p>
+            The biggest challenge was keeping the UI and data in sync.
+            A wrong selection order could easily cause incorrect stock checks
+            or duplicated cart items.
+        </p>
+
+        <h2>🎯 What I Learned</h2>
+        <ul>
+            <li>Designing data structures before writing UI logic</li>
+            <li>Separating UI state from business logic</li>
+            <li>Thinking like a real user, not just a developer</li>
+        </ul>
+
+        <h2>💡 Final Thoughts</h2>
+        <p>
+            This project helped me understand how real-world e-commerce systems work
+            behind the scenes and prepared me for more complex backend-driven solutions.
+        </p>
+
+    </div>
+</section>
+
+<footer>
+    <p>Built by NguyenHien</p>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Portfolio | Dark Theme</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&family=Outfit:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- =====================
+     NAVBAR
+===================== -->
+<nav class="navbar">
+    <!-- LOGO -->
+    <div class="logo">
+        Portfolio
+    </div>
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#certificates">Certificates</a></li>
+        <li><a href="#projects" >Projects</a></li>
+        <li><a href="#blog" >Blogs</a></li>
+        <li>
+            <a href="#contact" class="btn-nav" data-i18n="nav_contact">
+                Contact
+            </a>
+        </li>
+    </ul>
+
+</nav>
+
+<!-- =====================
+     HERO (HYBRID)
+===================== -->
+<section id="home" class="hero hybrid-hero section">
+
+    <!-- Accent layers -->
+    <div class="hero-blur blur-left"></div>
+    <div class="hero-blur blur-right"></div>
+
+    <div class="container hero-container hybrid-layout">
+
+        <!-- LEFT CONTENT -->
+        <div class="hero-content">
+            <span class="subtitle">Hello, I am</span>
+            <h1>Nguyen Huynh Truc Hien</h1>
+            <p class="role">Software Engineer</p>
+            <p class="description">
+                Chuyên xây dựng các hệ thống web tối ưu, bảo mật với giao diện người dùng hiện đại.
+            </p>
+
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="#contact" class="btn btn-secondary">Contact</a>
+            </div>
+        </div>
+
+        <!-- RIGHT VISUAL (FLOATING) -->
+        <div class="hero-visual floating-visual">
+            <div class="code-block">
+                <div class="window-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <div class="profile-image-wrapper">
+                    <img src="img/1.png" alt="Nguyen ">
+                </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- =====================
+     SKILLS
+===================== -->
+<section id="skills" class="section section-soft">
+    <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card"><i class="fab fa-js"></i><h3>JavaScript</h3></div>
+            <div class="skill-card"><i class="fa-brands fa-flutter"></i><h3>Flutter</h3></div>
+            <div class="skill-card"><i class="fab fa-node-js"></i><h3>NodeJS</h3></div>
+            <div class="skill-card"><i class="fas fa-database"></i><h3>Databases</h3></div>
+            <div class="skill-card"><i class="fab fa-git-alt"></i><h3>Git</h3></div>
+            <div class="skill-card"><i class="fa-brands fa-figma"></i><h3>Figma</h3></div>
+        </div>
+    </div>
+</section>
+
+<section id="certificates" class="section">
+    <div class="container">
+        <h2 class="section-title">Certificates</h2>
+
+        <!-- YEAR NAV -->
+        <div class="cert-filter">
+            <button class="filter-btn active" data-year="all">All</button>
+            <button class="filter-btn" data-year="2025">2025</button>
+        </div>
+
+        <!-- TIMELINE -->
+        <div class="cert-timeline">
+
+            <!-- YEAR BLOCK -->
+            <div class="cert-year" data-year="2025">
+                <div class="year-label">2025</div>
+                <div class="cert-item">
+                    <div class="cert-image">
+                        <img src="img/js1.png" alt="Java">
+                    </div>
+                    <div class="cert-content">
+                        <h3>JavaScript Essentials 1</h3>
+                        <span class="issuer">Cisco Networking Academy</span>
+                    </div>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-image">
+                        <img src="img/js2.png" alt="Java">
+                    </div>
+                    <div class="cert-content">
+                        <h3>JavaScript Essentials 2</h3>
+                        <span class="issuer">Cisco Networking Academy</span>
+                    </div>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-image">
+                        <img src="img/network.png" alt="Java">
+                    </div>
+                    <div class="cert-content">
+                        <h3>Networking Basics</h3>
+                        <span class="issuer">Cisco Networking Academy</span>
+                    </div>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-image">
+                        <img src="img/gt.jpg" alt="Cert" data-full="img/giaotiep.jpg">
+                    </div>
+                    <div class="cert-content">
+                        <h3>Communication & Teamwork Skills</h3>
+                        <span class="issuer">HUTECH University</span>
+                    </div>
+                </div>
+
+                <div class="cert-item">
+                    <div class="cert-image">
+                        <img src="img/b1.png" alt="Certificate C" class="cert-thumb" data-full="img/cnB1.jpg">
+                    </div>
+                    <div class="cert-content">
+                        <h3>CEFR Level B1</h3>
+                        <span class="issuer">HUTECH University</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="projects" class="section section-soft">
+    <div class="container">
+        <h2 class="section-title">Projects</h2>
+        
+        <div class="project-grid">
+            <div class="project-card" onclick="window.open('https://github.com/NguyenHin/TotalEnglish.git', '_blank')">
+                <div class="project-header">
+                    <i class="far fa-folder" style="font-size: 1.8rem; color: var(--accent-main);"></i>
+                    <div class="project-links">
+                        <i class="fab fa-github"></i>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <h3>ToTalEnglish</h3>
+                    <p>English learning app.</p>
+                    <ul class="tech-list">
+                        <li>Flutter</li>
+                        <li>Firebase</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="window.open('https://github.com/ThienY04/NOVAShop.git', '_blank')">
+                <div class="project-header">
+                    <i class="far fa-folder" style="font-size: 1.8rem; color: var(--accent-main);"></i>
+                    <div class="project-links">
+                        <i class="fab fa-github"></i>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <h3>NOVA Shop</h3>
+                    <p>Online clothing store website.</p>
+                    <ul class="tech-list">
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JS</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =====================
+     BLOG
+===================== -->
+<section id="blog" class="section section-soft">
+    <div class="container">
+        <h2 class="section-title">Blogs</h2>
+
+        <p class="section-desc">
+            I write about what I learn, build, and struggle with during my journey as a developer.
+        </p>
+
+        <!-- BLOG GRID -->
+        <div class="blog-grid" id="blogGrid">
+
+            <!-- BLOG 1 (VISIBLE) -->
+            <div class="blog-card">
+                <span class="blog-date">Mar 2025</span>
+                <h3>Building My First Flutter English Learning App</h3>
+                <p>
+                    Lessons learned from developing a mobile app using Flutter & Firebase.
+                </p>
+                <div class="blog-tags">
+                    <span>Flutter</span>
+                    <span>Firebase</span>
+                </div>
+                <a href="blog/te.html" class="blog-link">
+                    Read more →
+                </a>
+            </div>
+
+            <!-- BLOG 2 (VISIBLE) -->
+            <div class="blog-card">
+                <span class="blog-date">June 2025</span>
+                <h3>Handling Product Variants in an E-commerce Website</h3>
+                <p>
+                    Managing color, size, and stock in a clothing e-commerce project.
+                </p>
+                <div class="blog-tags">
+                    <span>HTML</span>
+                    <span>JavaScript</span>
+                </div>
+                <a href="blog/ecommerce-variants.html" class="blog-link">
+                    Read more →
+                </a>
+            </div>
+
+            <!-- BLOG 3 (VISIBLE) -->
+            <div class="blog-card">
+                <span class="blog-date">Dec 2025</span>
+                <h3>Deploying My Personal Portfolio Website</h3>
+                <p>
+                    What I learned from building and deploying my own developer portfolio.
+                </p>
+                <div class="blog-tags">
+                    <span>Portfolio</span>
+                    <span>Deploy</span>
+                </div>
+                <a href="blog/portfolio-deploy.html" class="blog-link">
+                    Read more →
+                </a>
+            </div>
+
+            <!-- BLOG 4 (HIDDEN) -->
+            <div class="blog-card blog-hidden">
+                <span class="blog-date">Oct 2025</span>
+                <h3>Deploying a Website for the First Time</h3>
+                <p>
+                    Mistakes and lessons from my first deployment experience.
+                </p>
+                <div class="blog-tags">
+                    <span>Deploy</span>
+                    <span>Learning</span>
+                </div>
+                <a href="blog/first-deploy.html" class="blog-link">
+                    Read more →
+                </a>
+            </div>
+
+        </div>
+
+        <!-- VIEW ALL BUTTON -->
+        <div class="blog-view-all">
+            <a href="#blog" class="btn btn-secondary" id="viewAllBlog">
+                View all posts →
+            </a>
+        </div>
+
+    </div>
+</section>
+
+
+<section id="contact" class="section">
+    <div class="container contact-container">
+        <h2 class="section-title">Contact</h2>
+
+        <p class="contact-intro">
+            You can contact me through the information below:
+        </p>
+
+        <ul class="contact-list">
+            <li>
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:email@example.com">nguyenhien8148@gmail.com</a>
+            </li>
+
+            <li>
+                <i class="fas fa-phone"></i>
+                <a href="tel:+84708816871">+84 708 816 871</a>
+            </li>
+
+            <li>
+                <i class="fab fa-github"></i>
+                <a href="https://github.com/NguyenHin" target="_blank">
+                    github.com/NguyenHien
+                </a>
+            </li>
+        </ul>
+    </div>
+</section>
+<!-- Lightbox overlay duy nhất -->
+<div id="lightbox" onclick="this.style.display='none'">
+    <img id="lightbox-img" src="">
+</div>
+<footer>
+    <p>Built by NguyenHien</p>
+</footer>
+
+
+<script src="script.js"></script>
+</body>
+</html>

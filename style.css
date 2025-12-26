@@ -1,0 +1,755 @@
+/* =====================
+COLOR SYSTEM (Updated with #353A5F and #9EBAF3)
+===================== */
+:root {
+  --bg-main: #0a0c12;        /* Nền tối sâu dựa trên sắc xanh */
+  --bg-deep: #080a0f;        /* Nền tối hơn */
+  --bg-card: #141a26;        /* Nền thẻ */
+  --bg-soft: #1c2433;        /* Nền tương tác nhẹ */
+
+  --accent-main: #353A5F;    /* Xanh Navy đậm - Primary */
+  --accent-soft: #9EBAF3;    /* Xanh Baby Blue - Secondary/Glow */
+
+  --text-main: #cbd5e1;      /* Chữ chính */
+  --text-soft: #94a3b8;      /* Chữ phụ */
+  --text-highlight: #FFFFFF; /* Chữ tiêu đề trắng */
+
+  --border-main: rgba(158, 186, 243, 0.2); /* Border dựa trên màu baby blue */
+
+  --font-heading: 'Outfit', sans-serif;
+  --font-code: 'Fira Code', monospace;
+}
+
+/* =====================
+2. RESET & GLOBAL
+===================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-heading);
+  color: var(--text-main);
+  line-height: 1.6;
+  background:
+    radial-gradient(700px circle at 18% 8%, rgba(53, 58, 95, 0.4), transparent 60%),
+    radial-gradient(500px circle at 85% 20%, rgba(158, 186, 243, 0.15), transparent 65%),
+    linear-gradient(180deg, var(--bg-main), var(--bg-deep));
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-highlight);
+  transition: 0.3s;
+}
+
+ul { list-style: none; }
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* =====================
+3. SCROLL ANIMATION
+===================== */
+.section {
+  padding: 100px 0;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.section.section-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-soft {
+  background: radial-gradient(circle at center, rgba(158, 186, 243, 0.08), transparent);
+}
+
+/* =====================
+4. NAVBAR
+===================== */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 18px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background:
+    radial-gradient(700px circle at 18% 8%, rgba(53, 58, 95, 0.35), transparent 58%),
+    radial-gradient(520px circle at 85% 22%, rgba(158, 186, 243, 0.18), transparent 62%),
+    linear-gradient(180deg, rgba(10, 12, 18, 0.85), rgba(8, 10, 15, 0.85));
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-main);
+}
+
+.logo {
+  font-family: var(--font-code);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.logo span { color: var(--accent-soft); }
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.nav-links a {
+  font-size: 0.95rem;
+  color: var(--text-soft);
+}
+
+.nav-links a:hover { color: var(--accent-soft); }
+
+.btn-nav {
+  padding: 8px 18px;
+  border-radius: 4px;
+  border: 1px solid var(--accent-soft);
+}
+
+.btn-nav:hover {
+  background: rgba(158, 186, 243, 0.1);
+}
+
+/* =====================
+5. HERO – HYBRID (FIXED)
+===================== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 90px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-container {
+  max-width: 1300px;   /* 👈 RỘNG RIÊNG CHO HERO */
+}
+
+/* layout chính */
+.hybrid-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+/* blur nền */
+.hero-blur {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  filter: blur(130px);
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.blur-left {
+  background: var(--accent-main);
+  top: 10%;
+  left: -180px;
+}
+
+.blur-right {
+  background: var(--accent-soft);
+  bottom: 15%;
+  right: -180px;
+}
+
+/* ===== LEFT CONTENT ===== */
+.hero-content {
+  max-width: 620px;
+  z-index: 1;
+}
+
+.subtitle {
+  font-family: var(--font-code);
+  font-size: 0.95rem;
+  color: var(--accent-soft);
+}
+
+.hero-content h1 {
+  font-size: 4rem;
+  margin: 18px 0;
+  line-height: 1.1;
+  background: linear-gradient(90deg, #FFFFFF, #9EBAF3, #cbd5e1, #94a3b8);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.role {
+  font-size: 1.5rem;
+  color: var(--text-soft);
+  margin-bottom: 22px;
+}
+
+.description {
+  max-width: 480px;
+  margin-bottom: 36px;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 18px;
+}
+
+/* ===== RIGHT VISUAL (IMAGE) ===== */
+.hero-visual {
+  z-index: 1;
+  flex-shrink: 0;
+  width: 340px;        /* 👈 GIỚI HẠN RỘNG */
+  max-width: 100%;
+}
+
+/* floating nhẹ */
+.floating-visual {
+  animation: floatY 6s ease-in-out infinite;
+}
+
+@keyframes floatY {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+/* =====================
+6. BUTTONS
+===================== */
+.btn {
+  padding: 12px 30px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-main), var(--accent-soft));
+  color: #FFFFFF;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.1);
+}
+
+.btn-secondary {
+  border: 1px solid var(--accent-soft);
+  color: var(--accent-soft);
+}
+
+.btn-secondary:hover {
+  background: rgba(158, 186, 243, 0.1);
+}
+
+.big-btn {
+  margin-top: 30px;
+  padding: 18px 45px;
+  border-radius: 50px;
+  letter-spacing: 1px;
+}
+
+/* =====================
+7. CODE BLOCK FLOATING
+===================== */
+.hero-visual { z-index: 1; }
+
+.code-block {
+  background: linear-gradient(160deg, var(--bg-card), var(--bg-main));
+  padding: 22px;
+  border-radius: 14px;
+  border: 1px solid var(--border-main);
+  font-family: var(--font-code);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.55);
+  overflow: hidden;
+}
+
+/* ===== HERO IMAGE FRAME ===== */
+.profile-image-wrapper {
+  width: 100%;
+  aspect-ratio: 3 / 4;   /* 👈 CHUẨN HERO */
+  height: 420px;          /* 👈 GIỚI HẠN CHIỀU CAO */
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid var(--border-main);
+}
+
+.profile-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* 👈 KHÔNG MÉO ẢNH */
+}
+
+.window-header {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.red { background:#ff5f56; }
+.yellow { background:#ffbd2e; }
+.green { background:#27c93f; }
+
+pre {
+  font-size: 0.85rem;
+  color: var(--text-soft);
+}
+
+/* =====================
+8. SECTION TITLE
+===================== */
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 50px;
+  color: var(--text-highlight);
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -12px;
+  width: 65%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-soft), transparent);
+}
+
+/* =====================
+9. SKILLS
+===================== */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px;
+}
+
+.skill-card {
+  border: 1px solid var(--border-main);
+  padding: 25px 15px;
+  border-radius: 16px;
+  text-align: center;
+  transition: 0.4s;
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent-soft);
+  background: rgba(158, 186, 243, 0.05);
+}
+
+.skill-card i {
+  font-size: 2.8rem;
+  background: linear-gradient(135deg, var(--text-highlight), var(--accent-soft));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =====================
+10. CERTIFICATES (GROUP BY YEAR)
+===================== */
+
+/* FILTER (YEAR NAV) */
+.cert-filter {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: transparent;
+  border: 1px solid var(--border-main);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-family: var(--font-code);
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.filter-btn:hover {
+  border-color: var(--accent-soft);
+  color: var(--text-highlight);
+}
+
+.filter-btn.active {
+  background: linear-gradient(135deg, var(--accent-main), var(--accent-soft));
+  color: #FFFFFF;
+  border-color: transparent;
+}
+
+/* =====================
+TIMELINE SCROLL WRAPPER
+===================== */
+.cert-timeline {
+  max-height: 520px;
+  overflow-y: auto;
+  padding-left: 34px;
+  padding-right: 16px;
+  position: relative;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-soft) transparent;
+}
+
+/* timeline vertical line */
+.cert-timeline::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--accent-soft), transparent);
+}
+
+/* scrollbar (Chrome / Edge) */
+.cert-timeline::-webkit-scrollbar {
+  width: 6px;
+}
+
+.cert-timeline::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.cert-timeline::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--accent-main), var(--accent-soft));
+  border-radius: 10px;
+}
+
+/* =====================
+YEAR GROUP
+===================== */
+.cert-year {
+  position: relative;
+  padding-bottom: 50px;
+}
+
+/* year label (sticky) */
+.year-label {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  font-family: var(--font-code);
+  font-size: 1.05rem;
+  color: var(--accent-soft);
+  padding: 14px 0 18px;
+  margin-bottom: 10px;
+  background: var(--bg-main);
+  backdrop-filter: blur(6px);
+}
+
+/* =====================
+CERT ITEM
+===================== */
+.cert-item {
+  position: relative;
+  display: flex;
+  gap: 20px;
+  margin-bottom: 40px;
+  padding: 20px;
+  border-radius: 16px;
+  transition: 0.3s;
+}
+
+.cert-item:hover {
+  background: rgba(158, 186, 243, 0.04);
+}
+
+/* dot on timeline */
+.cert-item::after {
+  content: '';
+  position: absolute;
+  left: -36px;
+  top: 32px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  box-shadow: 0 0 8px var(--accent-soft);
+}
+
+/* content text */
+.cert-date {
+  font-family: var(--font-code);
+  font-size: 0.85rem;
+  color: var(--accent-soft);
+}
+
+.issuer {
+  font-size: 0.85rem;
+  color: var(--text-soft);
+}
+
+/* image */
+.cert-image {
+  width: 180px;
+  height: 120px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border-main);
+  flex-shrink: 0;
+}
+
+.cert-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* =====================
+11. PROJECTS
+===================== */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.project-card {
+  background: linear-gradient(160deg, var(--bg-card), var(--bg-main));
+  padding: 32px;
+  border-radius: 12px;
+  border: 1px solid var(--border-main);
+  transition: 0.35s;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent-soft);
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.project-links i {
+  color: var(--text-soft);
+}
+
+.project-links i:hover {
+  color: var(--accent-soft);
+}
+
+.tech-list {
+  display: flex;
+  gap: 14px;
+  margin-top: 18px;
+  font-family: var(--font-code);
+  font-size: 0.8rem;
+}
+
+.tech-list li {
+  background: var(--bg-soft);
+  padding: 5px 10px;
+  border-radius: 4px;
+  color: var(--accent-soft);
+}
+
+/* =====================
+12. CONTACT & FOOTER
+===================== */
+
+.contact-container {
+  text-align: center;
+  padding: 60px 20px;
+  background: radial-gradient(circle, rgba(158, 186, 243, 0.08), transparent);
+  border-radius: 30px;
+  border: 1px solid var(--border-main);
+}
+
+.contact-intro {
+  margin-bottom: 30px;
+  color: var(--text-soft);
+}
+
+/* list info */
+.contact-list {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.contact-list li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-code);
+  font-size: 0.95rem;
+}
+
+.contact-list i {
+  font-size: 1.1rem;
+  color: var(--accent-soft);
+}
+
+.contact-list a {
+  color: var(--text-highlight);
+}
+
+.contact-list a:hover {
+  color: var(--accent-soft);
+}
+
+footer {
+  margin-top: 80px;
+  text-align: center;
+  padding: 30px;
+  color: var(--text-soft);
+  border-top: 1px solid var(--border-main);
+}
+
+footer i { color: var(--accent-soft); }
+
+/* =====================
+13. Blog
+===================== */
+.section-desc {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    opacity: 0.85;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    /* 👇 thêm */
+    max-height: 460px;
+    overflow: hidden;
+    /* 👇 FIX GRID BỊ KÉO DÀI */
+    align-items: start;
+    grid-auto-rows: min-content;
+
+    transition: max-height 0.4s ease;
+}
+.blog-grid.expanded {
+    max-height: 460px;          /* chiều cao cố định */
+    overflow-y: auto;           /* scroll bên trong */
+    padding-right: 6px;
+}
+.blog-grid.expanded::-webkit-scrollbar {
+    width: 6px;
+}
+
+.blog-grid.expanded::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+}
+
+.blog-grid.expanded::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+.blog-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 1.8rem;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-6px);
+}
+
+.blog-date {
+    font-size: 0.85rem;
+    opacity: 0.6;
+}
+
+.blog-card h3 {
+    margin: 0.6rem 0;
+    font-size: 1.1rem;
+}
+
+.blog-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.85;
+}
+
+.blog-tags {
+    margin: 1rem 0;
+}
+
+.blog-tags span {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.08);
+    margin-right: 6px;
+}
+
+.blog-link {
+    font-size: 0.9rem;
+    color: var(--accent-main);
+    text-decoration: none;
+}
+.blog-detail {
+    max-width: 800px;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    color: var(--accent-main);
+    text-decoration: none;
+}
+
+.blog-title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.blog-meta {
+    font-size: 0.9rem;
+    opacity: 0.6;
+    margin-bottom: 2rem;
+}
+
+.blog-cover {
+    width: 100%;
+    border-radius: 16px;
+    margin-bottom: 2rem;
+}
+
+.blog-detail h2 {
+    margin-top: 2rem;
+}
+
+.blog-detail p,
+.blog-detail li {
+    line-height: 1.8;
+    opacity: 0.9;
+}
+
