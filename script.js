@@ -120,34 +120,140 @@ document.addEventListener("DOMContentLoaded", () => {
         lightbox.style.display = 'none';
     });
 
-});
+    /* =====================
+    6. BLOG VIEW ALL (LAZY INIT)
+    ===================== */
+    const blogCards = document.querySelectorAll(".blog-card");
+    const viewAllBtn = document.getElementById("viewAllBlog");
+    const blogGrid = document.querySelector(".blog-grid");
 
-/* =====================
-   6. BLOG VIEW ALL (INTERNAL SCROLL)
-===================== */
-const viewAllBtn = document.getElementById("viewAllBlog");
-const blogGrid = document.querySelector(".blog-grid");
+    if (blogCards.length && blogGrid && viewAllBtn) {
 
-if (viewAllBtn && blogGrid) {
+    // ===== PREVIEW: chỉ hiện 3 bài =====
+    if (blogCards.length > 3) {
+        blogCards.forEach((card, index) => {
+        if (index >= 3) card.style.display = "none";
+        });
+        viewAllBtn.style.display = "inline-block";
+    } else {
+        viewAllBtn.style.display = "none";
+    }
+
+    // ===== VIEW ALL =====
     viewAllBtn.addEventListener("click", (e) => {
         e.preventDefault();
 
         blogCards.forEach(card => {
-            card.style.display = "block";
+        card.style.display = "block";
         });
 
         blogGrid.classList.add("expanded");
         viewAllBtn.style.display = "none";
     });
-}
-
-/* =====================
-   BLOG PREVIEW (3 POSTS)
-===================== */
-const blogCards = document.querySelectorAll(".blog-card");
-
-blogCards.forEach((card, index) => {
-    if (index >= 3) {
-        card.style.display = "none";
     }
+
+    /* =====================
+7. PROJECT MODAL (IMAGE + TEXT SYNC)
+===================== */
+
+const modal = document.getElementById("projectModal");
+const modalTitle = document.getElementById("modalTitle");
+const modalDesc = document.getElementById("modalDesc");
+const modalMainImage = document.getElementById("modalMainImage");
+const modalImages = document.getElementById("modalImages");
+const modalImageCaption = document.getElementById("modalImageCaption");
+const modalGithub = document.getElementById("modalGithub");
+const modalClose = document.querySelector(".modal-close");
+
+/* ===== OPEN MODAL ===== */
+document.querySelectorAll(".project-detail-btn").forEach(btn => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    // set main content
+    modalTitle.textContent = btn.dataset.title;
+    modalDesc.textContent = btn.dataset.desc;
+    modalGithub.href = btn.dataset.github;
+
+    // reset
+    modalMainImage.src = "";
+    modalImageCaption.textContent = "";
+    modalImages.innerHTML = "";
+
+    // parse images + caption
+    const images = btn.dataset.images
+      .split(",")
+      .map(item => {
+        const [src, caption] = item.split("|");
+        return {
+          src: src.trim(),
+          caption: caption?.trim() || ""
+        };
+      })
+      .filter(item => item.src);
+
+    // render thumbs
+    images.forEach((imgData, index) => {
+      const thumb = document.createElement("img");
+      thumb.src = imgData.src;
+      thumb.loading = "lazy";
+
+      // default image
+      if (index === 0) {
+        modalMainImage.src = imgData.src;
+        modalImageCaption.textContent = imgData.caption;
+        thumb.classList.add("active");
+      }
+
+      // click thumb
+      thumb.addEventListener("click", () => {
+  modalImageCaption.classList.add("hide");
+
+  setTimeout(() => {
+    modalMainImage.src = imgData.src;
+    modalImageCaption.textContent = imgData.caption;
+    modalImageCaption.classList.remove("hide");
+  }, 150);
+
+  document
+    .querySelectorAll(".modal-thumbs img")
+    .forEach(i => i.classList.remove("active"));
+  thumb.classList.add("active");
 });
+
+
+      modalImages.appendChild(thumb);
+    });
+
+    modal.classList.add("active");
+    document.body.style.overflow = "hidden";
+  });
+});
+
+/* ===== CLOSE MODAL ===== */
+const closeModal = () => {
+  modal.classList.remove("active");
+  document.body.style.overflow = "";
+};
+
+// click X
+modalClose.addEventListener("click", closeModal);
+
+// click overlay
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) closeModal();
+});
+
+// ESC key
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && modal.classList.contains("active")) {
+    closeModal();
+  }
+});
+
+
+});
+
+
+

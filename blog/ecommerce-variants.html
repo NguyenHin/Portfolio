@@ -1,79 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Handling Product Variants in an E-commerce Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giải Pháp Xử Lý Biến Thể Sản Phẩm</title>
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <body>
 
 <nav class="navbar">
-    <div class="logo">&lt;Dev<span>.Code</span>/&gt;</div>
+    <div class="logo">Nguyen<span>Hien</span></div>
     <ul class="nav-links">
-        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html#home">Trang chủ</a></li>
+        <li><a href="about.html">Giới thiệu</a></li>
     </ul>
 </nav>
 
 <section class="section">
     <div class="container blog-detail">
 
-        <a href="../index.html#blog" class="back-link">← Back</a>
+        <a href="../index.html#blog" class="back-link" style="text-decoration: none; color: var(--accent-soft);">
+            <i class="fas fa-chevron-left"></i> Quay lại
+        </a>
 
-        <h1 class="blog-title">
-            Handling Product Variants in an E-commerce Website
+        <h1 class="blog-title" style="margin-top: 20px; font-size: 2.5rem; color: #fff;">
+            Kỹ Thuật Xử Lý Biến Thể Sản Phẩm (Product Variants) Trong E-commerce
         </h1>
 
-        <p class="blog-meta">
-            February 2025 · HTML · JavaScript
+        <p class="blog-meta" style="color: var(--text-soft); font-family: var(--font-code); margin-bottom: 40px;">
+            <i class="far fa-calendar-alt"></i> Tháng 7, 2025 | <i class="fas fa-tags"></i> Logic Lập Trình · JavaScript
         </p>
 
-        <h2>📌 Background</h2>
+        <h2>1. Cấu Trúc Dữ Liệu Cho Biến Thể</h2>
         <p>
-            While building a simple clothing e-commerce website, I quickly realized that
-            handling product variants such as color, size, and stock quantity was more complex
-            than it first appeared.
+            Để xử lý các sản phẩm có nhiều thuộc tính (ví dụ: Màu sắc, Kích thước), việc sử dụng một mảng các đối tượng (Objects) là giải pháp tối ưu. Mỗi đối tượng sẽ đại diện cho một SKU duy nhất với đầy đủ thông tin về thuộc tính và tồn kho.
         </p>
+        <div class="code-snippet" style="background: #1e1e1e; padding: 15px; border-radius: 8px; font-family: 'Fira Code', monospace; font-size: 0.9rem; color: #dcdcdc; margin: 20px 0; border-left: 4px solid var(--accent-soft);">
+            // Cấu trúc mẫu<br>
+            variants: [<br>
+            &nbsp;&nbsp;{ id: "V1", color: "Đen", size: "L", stock: 10 },<br>
+            &nbsp;&nbsp;{ id: "V2", color: "Đen", size: "M", stock: 0 },<br>
+            &nbsp;&nbsp;{ id: "V3", color: "Trắng", size: "L", stock: 5 }<br>
+            ]
+        </div>
 
-        <h2>🧩 The Problem</h2>
+        <h2>2. Logic Lọc Thuộc Tính Động</h2>
         <p>
-            Each product could have multiple combinations of color and size,
-            and each combination had a different stock quantity.
-            A normal “Add to Cart” logic was not enough.
+            Quy trình xử lý logic trên giao diện người dùng (UI) được thực hiện qua các bước:
         </p>
-
-        <h2>🛠 My Approach</h2>
         <ul>
-            <li>Represent each variant as a unique combination of color + size</li>
-            <li>Store variants in a structured JavaScript object</li>
-            <li>Update available sizes dynamically based on selected color</li>
-            <li>Disable the add-to-cart button when stock is zero</li>
+            <li><strong>Lọc theo lựa chọn:</strong> Khi người dùng chọn Màu sắc, hệ thống sẽ tự động lọc danh sách Kích thước tương ứng có sẵn.</li>
+            <li><strong>Kiểm tra tồn kho (Stock Checking):</strong> Đối với các biến thể có <code>stock = 0</code>, thuộc tính đó sẽ được hiển thị ở trạng thái "Disabled" để ngăn người dùng chọn.</li>
+            <li><strong>Xác định SKU:</strong> Dựa trên tổ hợp thuộc tính cuối cùng để lấy ra ID sản phẩm chính xác khi thêm vào giỏ hàng.</li>
         </ul>
 
-        <h2>⚠ Challenges</h2>
+        
+
+        <h2>3. Đồng Bộ Trạng Thái Giao Diện (UI State)</h2>
         <p>
-            The biggest challenge was keeping the UI and data in sync.
-            A wrong selection order could easily cause incorrect stock checks
-            or duplicated cart items.
+            Sử dụng JavaScript để lắng nghe sự kiện <code>change</code> từ các input/radio. Mỗi khi trạng thái thay đổi, hệ thống thực hiện tính toán lại:
         </p>
+        <ol>
+            <li>Kiểm tra tính hợp lệ của tổ hợp thuộc tính hiện tại.</li>
+            <li>Cập nhật thông tin giá và hình ảnh tương ứng với biến thể đã chọn.</li>
+            <li>Thay đổi trạng thái nút "Thêm vào giỏ hàng" (Active/Disabled) dựa trên số lượng tồn kho thực tế.</li>
+        </ol>
 
-        <h2>🎯 What I Learned</h2>
-        <ul>
-            <li>Designing data structures before writing UI logic</li>
-            <li>Separating UI state from business logic</li>
-            <li>Thinking like a real user, not just a developer</li>
-        </ul>
-
-        <h2>💡 Final Thoughts</h2>
+        <h2>4. Kết Luận & Ứng Dụng</h2>
         <p>
-            This project helped me understand how real-world e-commerce systems work
-            behind the scenes and prepared me for more complex backend-driven solutions.
+            Việc tách biệt rõ ràng giữa <strong>Dữ liệu biến thể</strong> và <strong>Logic hiển thị</strong> giúp hệ thống dễ dàng mở rộng khi có thêm các thuộc tính mới như Chất liệu hoặc Kiểu dáng. Đây là nền tảng quan trọng để xây dựng các tính năng quản lý kho hàng (Inventory Management) phức tạp hơn trong tương lai.
         </p>
 
     </div>
 </section>
 
 <footer>
-    <p>Built by NguyenHien</p>
+    <p>&copy; 2025 Built by NguyenHien</p>
 </footer>
 
 <script src="../script.js"></script>

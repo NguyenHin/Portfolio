@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triển Khai Node.js Lên Render</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">Nguyen<span>Hien</span></div>
+    <ul class="nav-links">
+        <li><a href="../index.html#home">Trang chủ</a></li>
+        <li><a href="about.html">Giới thiệu</a></li>
+    </ul>
+</nav>
+
+<section class="section">
+    <div class="container blog-detail">
+
+        <a href="../index.html#blog" class="back-link" style="text-decoration: none; color: var(--accent-soft);">
+            <i class="fas fa-chevron-left"></i> Quay lại
+        </a>
+
+        <h1 class="blog-title" style="margin-top: 20px; font-size: 2.5rem; color: #fff;">
+            Triển Khai Ứng Dụng Node.js Lên Nền Tảng Render
+        </h1>
+
+        <p class="blog-meta" style="color: var(--text-soft); font-family: var(--font-code); margin-bottom: 40px;">
+            <i class="far fa-calendar-alt"></i> Tháng 7, 2025 | <i class="fab fa-node-js"></i> Backend · Cloud Deployment
+        </p>
+
+        <h2>1. Đặc Điểm Của Nền Tảng Render</h2>
+        <p>
+            Render là một nền tảng Cloud (PaaS) cho phép triển khai các ứng dụng backend một cách tự động. So với GitHub Pages, Render hỗ trợ môi trường thực thi (Runtime) cho Node.js, cho phép xử lý logic server và kết nối cơ sở dữ liệu.
+        </p>
+
+        <h2>2. Chuẩn Bị File Cấu Hình (package.json)</h2>
+        <p>
+            Để Render có thể khởi chạy ứng dụng, file <code>package.json</code> cần định nghĩa rõ lệnh khởi động. Đây là bước quan trọng nhất để tránh lỗi "Crashed" khi deploy.
+        </p>
+        <div class="code-snippet" style="background: #1e1e1e; padding: 15px; border-radius: 8px; font-family: 'Fira Code', monospace; font-size: 0.9rem; color: #dcdcdc; margin: 20px 0; border-left: 4px solid var(--accent-soft);">
+            "scripts": { <br>
+            &nbsp;&nbsp;"start": "node index.js" <br>
+            }
+        </div>
+        <p><em>Lưu ý:</em> Đảm bảo ứng dụng lắng nghe cổng (port) thông qua biến môi trường <code>process.env.PORT</code> thay vì cố định một cổng cục bộ.</p>
+
+        
+
+        <h2>3. Quy Trình Cấu Hình Trên Dashboard Render</h2>
+        <p>
+            Quy trình triển khai được thực hiện thông qua việc kết nối trực tiếp với GitHub Repository:
+        </p>
+        <ul>
+            <li><strong>New -> Web Service:</strong> Chọn repository chứa mã nguồn Node.js.</li>
+            <li><strong>Environment:</strong> Chọn Node.js làm Runtime chính.</li>
+            <li><strong>Build Command:</strong> Sử dụng <code>npm install</code> để cài đặt các thư viện cần thiết.</li>
+            <li><strong>Start Command:</strong> Sử dụng <code>npm start</code> để thực thi server.</li>
+        </ul>
+
+        <h2>4. Quản Lý Biến Môi Trường (Environment Variables)</h2>
+        <p>
+            Đối với các thông tin nhạy cảm như Database URI hoặc API Key, không nên đưa trực tiếp vào mã nguồn. Render cung cấp mục <strong>Advanced -> Environment Variables</strong> để lưu trữ các giá trị này một cách bảo mật, giúp ứng dụng vận hành an toàn trên môi trường thực tế.
+        </p>
+
+        <h2>Kết Luận</h2>
+        <p>
+            Việc triển khai lên Render giúp biến các dự án Node.js từ môi trường local thành một sản phẩm có thể truy cập toàn cầu. Đây là bước đi cần thiết để kiểm thử hiệu suất và khả năng xử lý yêu cầu thực tế của một ứng dụng backend.
+        </p>
+
+        <div style="margin-top: 40px; border-top: 1px solid var(--border-main); padding-top: 20px;">
+            <p>Tham khảo thêm tại: 
+                <a href="https://render.com/docs" target="_blank" style="color: var(--accent-soft); text-decoration: none;">
+                    Render Documentation <i class="fas fa-external-link-alt"></i>
+                </a>
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 Built by NguyenHien</p>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>

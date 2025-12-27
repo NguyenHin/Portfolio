@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dev Portfolio | Dark Theme</title>
+    <title>Portfolio</title>
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
@@ -16,18 +16,17 @@
 ===================== -->
 <nav class="navbar">
     <!-- LOGO -->
-    <div class="logo">
-        Portfolio
-    </div>
+    <div class="logo">Nguyen<span>Hien</span></div>
     <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#certificates">Certificates</a></li>
-        <li><a href="#projects" >Projects</a></li>
-        <li><a href="#blog" >Blogs</a></li>
+        <li><a href="#home">Trang chủ</a></li>
+        
+        <li><a href="#skills">Kỹ năng</a></li>
+        <li><a href="#certificates">Chứng chỉ</a></li>
+        <li><a href="#projects">Dự án</a></li>
+        <li><a href="#blog">Blogs</a></li>
         <li>
-            <a href="#contact" class="btn-nav" data-i18n="nav_contact">
-                Contact
+            <a href="#contact" class="btn-nav">
+                Liên hệ
             </a>
         </li>
     </ul>
@@ -47,16 +46,15 @@
 
         <!-- LEFT CONTENT -->
         <div class="hero-content">
-            <span class="subtitle">Hello, I am</span>
-            <h1>Nguyen Huynh Truc Hien</h1>
-            <p class="role">Software Engineer</p>
-            <p class="description">
-                Chuyên xây dựng các hệ thống web tối ưu, bảo mật với giao diện người dùng hiện đại.
-            </p>
-
+            <span class="subtitle">Xin chào, Tôi là</span>
+            <h1>Nguyễn Huỳnh Trúc Hiền</h1>
+            <p class="role">Sinh viên ngành công nghệ thông tin - Hutech</p>
+            <p class="description">Chuyên ngành: Công nghệ phần mềm</p>
+                
+       
             <div class="cta-buttons">
-                <a href="#projects" class="btn btn-primary">View Projects</a>
-                <a href="#contact" class="btn btn-secondary">Contact</a>
+                <a href="#projects" class="btn btn-primary">Xem dự án</a>
+                <a href="blog/intro.html" class="btn btn-secondary" target="_blank">Giới thiệu</a>
             </div>
         </div>
 
@@ -69,9 +67,9 @@
                     <span class="dot green"></span>
                 </div>
                 <div class="profile-image-wrapper">
-                    <img src="img/1.png" alt="Nguyen ">
+                    <img src="img/ava2.png" alt="Nguyen Hien">
                 </div>
-
+            </div>
         </div>
 
     </div>
@@ -82,25 +80,24 @@
 ===================== -->
 <section id="skills" class="section section-soft">
     <div class="container">
-        <h2 class="section-title">Skills</h2>
+        <h2 class="section-title">Kỹ năng</h2>
         <div class="skills-grid">
             <div class="skill-card"><i class="fab fa-js"></i><h3>JavaScript</h3></div>
             <div class="skill-card"><i class="fa-brands fa-flutter"></i><h3>Flutter</h3></div>
-            <div class="skill-card"><i class="fab fa-node-js"></i><h3>NodeJS</h3></div>
-            <div class="skill-card"><i class="fas fa-database"></i><h3>Databases</h3></div>
-            <div class="skill-card"><i class="fab fa-git-alt"></i><h3>Git</h3></div>
             <div class="skill-card"><i class="fa-brands fa-figma"></i><h3>Figma</h3></div>
+            <div class="skill-card"><i class="fab fa-git-alt"></i><h3>Git</h3></div>
+            <div class="skill-card"><i class="fab fa-node-js"></i><h3>NodeJS</h3></div>
         </div>
     </div>
 </section>
 
 <section id="certificates" class="section">
     <div class="container">
-        <h2 class="section-title">Certificates</h2>
+        <h2 class="section-title">Chứng chỉ</h2>
 
         <!-- YEAR NAV -->
         <div class="cert-filter">
-            <button class="filter-btn active" data-year="all">All</button>
+            <button class="filter-btn active" data-year="all">Tất cả</button>
             <button class="filter-btn" data-year="2025">2025</button>
         </div>
 
@@ -142,8 +139,8 @@
                         <img src="img/gt.jpg" alt="Cert" data-full="img/giaotiep.jpg">
                     </div>
                     <div class="cert-content">
-                        <h3>Communication & Teamwork Skills</h3>
-                        <span class="issuer">HUTECH University</span>
+                        <h3>Kỹ năng giao tiếp & làm việc nhóm</h3>
+                        <span class="issuer">Đại học Hutech</span>
                     </div>
                 </div>
 
@@ -152,8 +149,8 @@
                         <img src="img/b1.png" alt="Certificate C" class="cert-thumb" data-full="img/cnB1.jpg">
                     </div>
                     <div class="cert-content">
-                        <h3>CEFR Level B1</h3>
-                        <span class="issuer">HUTECH University</span>
+                        <h3>Chứng chỉ tiếng anh B1</h3>
+                        <span class="issuer">Đại học Hutech</span>
                     </div>
                 </div>
             </div>
@@ -163,47 +160,131 @@
 
 
 <section id="projects" class="section section-soft">
-    <div class="container">
-        <h2 class="section-title">Projects</h2>
-        
-        <div class="project-grid">
-            <div class="project-card" onclick="window.open('https://github.com/NguyenHin/TotalEnglish.git', '_blank')">
-                <div class="project-header">
-                    <i class="far fa-folder" style="font-size: 1.8rem; color: var(--accent-main);"></i>
-                    <div class="project-links">
-                        <i class="fab fa-github"></i>
-                    </div>
-                </div>
-                <div class="project-body">
-                    <h3>ToTalEnglish</h3>
-                    <p>English learning app.</p>
-                    <ul class="tech-list">
-                        <li>Flutter</li>
-                        <li>Firebase</li>
-                    </ul>
-                </div>
-            </div>
+  <div class="container">
+    <h2 class="section-title">Dự án</h2>
 
-            <div class="project-card" onclick="window.open('https://github.com/ThienY04/NOVAShop.git', '_blank')">
-                <div class="project-header">
-                    <i class="far fa-folder" style="font-size: 1.8rem; color: var(--accent-main);"></i>
-                    <div class="project-links">
-                        <i class="fab fa-github"></i>
-                    </div>
-                </div>
-                <div class="project-body">
-                    <h3>NOVA Shop</h3>
-                    <p>Online clothing store website.</p>
-                    <ul class="tech-list">
-                        <li>HTML</li>
-                        <li>CSS</li>
-                        <li>JS</li>
-                    </ul>
-                </div>
-            </div>
+    <div class="project-grid">
+
+      <!-- ===== PROJECT 1: TotalEnglish ===== -->
+      <div class="project-card">
+
+        <!-- HEADER -->
+        <div class="project-header">
+          <i class="far fa-folder project-icon"></i>
+
+          <a class="project-github"
+             href="https://github.com/NguyenHin/TotalEnglish.git"
+             target="_blank"
+             title="Xem GitHub">
+            <i class="fab fa-github"></i>
+          </a>
         </div>
+
+        <!-- BODY -->
+        <div class="project-body">
+          <h3>TotalEnglish</h3>
+          <p>Ứng dụng học tiếng Anh trên nền tảng mobile.</p>
+
+          <ul class="tech-list">
+            <li>Flutter</li>
+            <li>Firebase</li>
+          </ul>
+
+          <button
+            class="project-detail-btn"
+            data-title="TotalEnglish"
+            data-desc="Ứng dụng học tiếng Anh trên nền tảng mobile, hỗ trợ học từ vựng, luyện nghe và lưu tiến trình người học thông qua Firebase."
+            data-images="img/totalenglish/p1.png| Màn hình các bài học,
+                         img/totalenglish/p2.png| Màn hình từ vựng,
+                         img/totalenglish/p3.png| Màn hình minigame,
+                         img/totalenglish/p4.png| Màn hình luyện nói,
+                         img/totalenglish/p5.png| Màn hình bài tập"
+            data-github="https://github.com/NguyenHin/TotalEnglish.git">
+            Chi tiết →
+          </button>
+        </div>
+      </div>
+
+      <!-- ===== PROJECT 2: NOVA Shop ===== -->
+      <div class="project-card">
+
+        <div class="project-header">
+          <i class="far fa-folder project-icon"></i>
+
+          <a class="project-github"
+             href="https://github.com/ThienY04/NOVAShop.git"
+             target="_blank"
+             title="Xem GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+
+        <div class="project-body">
+          <h3>NOVA Shop</h3>
+          <p>Website thương mại điện tử bán quần áo.</p>
+
+          <ul class="tech-list">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+          </ul>
+
+          <button
+            class="project-detail-btn"
+            data-title="NOVA Shop"
+            data-desc="Website thương mại điện tử bán quần áo, hỗ trợ quản lý sản phẩm, biến thể màu sắc – kích thước và giao diện người dùng thân thiện."
+            data-images="img/nova/n1.png | Màn hình chính,
+                         img/nova/n2.jpg | Màn hình chi tiết sản phẩm,
+                         img/nova/n4.jpg | Màn hình xác nhận đơn hàng,
+                         img/nova/n8.jpg | Màn hình tổng quan hệ thống,"
+            data-github="https://github.com/ThienY04/NOVAShop.git">
+            Chi tiết →
+          </button>
+        </div>
+      </div>
+
+      <!-- ===== PROJECT 3: Quản lý quán cà phê ===== -->
+      <div class="project-card">
+
+        <div class="project-header">
+          <i class="far fa-folder project-icon"></i>
+
+          <a class="project-github"
+             href="https://github.com/NguyenHin/QLCF2.git"
+             target="_blank"
+             title="Xem GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+
+        <div class="project-body">
+          <h3>Quản lý quán cà phê</h3>
+          <p>Ứng dụng quản lý quán cà phê.</p>
+
+          <ul class="tech-list">
+            <li>C#</li>
+            <li>WinForms</li>
+          </ul>
+
+          <button
+            class="project-detail-btn"
+            data-title="Quản lý quán cà phê"
+            data-desc="Phần mềm quản lý quán cà phê, hỗ trợ quản lý sản phẩm, hóa đơn và doanh thu. Xây dựng bằng C# WinForms."
+            data-images="img/cafe/coffee.png | Màn hình đăng nhập,
+                        img/cafe/c1.png | Màn hình tác vụ,
+                        img/cafe/c2.png | Màn hình hoá đơn,
+                        img/cafe/c3.png | Màn hình chi tiết menu,
+                        img/cafe/c4.png | Màn hình quản lý nhân viên"
+            data-github="https://github.com/NguyenHin/QLCF2.git">
+            Chi tiết →
+          </button>
+        </div>
+      </div>
+
     </div>
+  </div>
 </section>
+
 
 <!-- =====================
      BLOG
@@ -213,7 +294,7 @@
         <h2 class="section-title">Blogs</h2>
 
         <p class="section-desc">
-            I write about what I learn, build, and struggle with during my journey as a developer.
+            ...
         </p>
 
         <!-- BLOG GRID -->
@@ -221,65 +302,66 @@
 
             <!-- BLOG 1 (VISIBLE) -->
             <div class="blog-card">
-                <span class="blog-date">Mar 2025</span>
-                <h3>Building My First Flutter English Learning App</h3>
+                <span class="blog-date">Tháng 3, 2025</span>
+                <h3>Xây dựng mobile app lần đầu tiên</h3>
                 <p>
-                    Lessons learned from developing a mobile app using Flutter & Firebase.
+                    Những bài học tôi rút ra từ việc phát triển ứng dụng di động sử dụng Flutter và Firebase.
                 </p>
                 <div class="blog-tags">
                     <span>Flutter</span>
                     <span>Firebase</span>
                 </div>
                 <a href="blog/te.html" class="blog-link">
-                    Read more →
+                    Đọc thêm →
                 </a>
             </div>
 
             <!-- BLOG 2 (VISIBLE) -->
             <div class="blog-card">
-                <span class="blog-date">June 2025</span>
-                <h3>Handling Product Variants in an E-commerce Website</h3>
+                <span class="blog-date">Tháng 6, 2025</span>
+                <h3>Xử Lý Các Biến Thể Sản Phẩm trong Website Thương Mại Điện Tử</h3>
                 <p>
-                    Managing color, size, and stock in a clothing e-commerce project.
+                    Quản lý màu sắc, kích thước và tồn kho trong một dự án thương mại điện tử bán quần áo.
                 </p>
                 <div class="blog-tags">
                     <span>HTML</span>
                     <span>JavaScript</span>
                 </div>
                 <a href="blog/ecommerce-variants.html" class="blog-link">
-                    Read more →
+                    Đọc thêm →
                 </a>
             </div>
+
 
             <!-- BLOG 3 (VISIBLE) -->
             <div class="blog-card">
-                <span class="blog-date">Dec 2025</span>
-                <h3>Deploying My Personal Portfolio Website</h3>
+                <span class="blog-date">Tháng 12, 2025</span>
+                <h3>Triển khai Node.js Speech API trên Render</h3>
                 <p>
-                    What I learned from building and deploying my own developer portfolio.
+                    Cách triển khai Node.js Speech API trên nền tảng Render để xây dựng ứng dụng nhận diện giọng nói.
                 </p>
                 <div class="blog-tags">
-                    <span>Portfolio</span>
-                    <span>Deploy</span>
+                    <span>API</span>
+                    <span>Triển khai</span>
                 </div>
-                <a href="blog/portfolio-deploy.html" class="blog-link">
-                    Read more →
+                <a href="blog/blog3.html" class="blog-link">
+                    Đọc thêm →
                 </a>
             </div>
 
+
             <!-- BLOG 4 (HIDDEN) -->
             <div class="blog-card blog-hidden">
-                <span class="blog-date">Oct 2025</span>
-                <h3>Deploying a Website for the First Time</h3>
+                <span class="blog-date">Tháng 12 2025</span>
+                <h3>Giới Thiệu</h3>
                 <p>
-                    Mistakes and lessons from my first deployment experience.
+                    Giới thiệu bản thân
                 </p>
                 <div class="blog-tags">
-                    <span>Deploy</span>
-                    <span>Learning</span>
+                    <span>Giới thiệu</span>
                 </div>
-                <a href="blog/first-deploy.html" class="blog-link">
-                    Read more →
+                <a href="blog/intro.html" class="blog-link">
+                    Đọc thêm →
                 </a>
             </div>
 
@@ -288,7 +370,7 @@
         <!-- VIEW ALL BUTTON -->
         <div class="blog-view-all">
             <a href="#blog" class="btn btn-secondary" id="viewAllBlog">
-                View all posts →
+                Xem tất cả →
             </a>
         </div>
 
@@ -298,10 +380,10 @@
 
 <section id="contact" class="section">
     <div class="container contact-container">
-        <h2 class="section-title">Contact</h2>
+        <h2 class="section-title">Liên hệ</h2>
 
         <p class="contact-intro">
-            You can contact me through the information below:
+            Bạn có thể liên hệ với tôi qua:
         </p>
 
         <ul class="contact-list">
@@ -324,14 +406,37 @@
         </ul>
     </div>
 </section>
-<!-- Lightbox overlay duy nhất -->
-<div id="lightbox" onclick="this.style.display='none'">
-    <img id="lightbox-img" src="">
-</div>
+
 <footer>
     <p>Built by NguyenHien</p>
 </footer>
 
+<!-- PROJECT MODAL -->
+<div class="project-modal" id="projectModal">
+  <div class="modal-content">
+
+    <span class="modal-close">&times;</span>
+
+    <h2 id="modalTitle"></h2>
+    <p id="modalDesc"></p>
+
+    <div class="modal-body">
+        <div class="modal-preview">
+            <img id="modalMainImage" />
+            <p class="modal-image-caption" id="modalImageCaption"></p>
+            <div class="modal-thumbs" id="modalImages"></div>
+        </div>
+
+        
+    </div>
+
+
+    <a id="modalGithub" class="btn btn-primary" target="_blank">
+      <i class="fab fa-github"></i> GitHub
+    </a>
+
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>
